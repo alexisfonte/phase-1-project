@@ -22,34 +22,49 @@ function renderCards(recipeArray){
     })
 }
 
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = this.nextElementSibling;
+if (content.style.display === "block") {
+content.style.display = "none";
+} else {
+content.style.display = "block";
+}
+});
+}
 
 
 // Callback Functions
 function createCard(recipe){
     let recipeName = recipe.name
     let recipeImage = recipe.image
-
+    
     const card = document.createElement('div')
-       card.setAttribute("class", "item")
-
-       const recipeImageDOM = document.createElement('img')
-       recipeImageDOM.src = recipeImage
-
-       const recipeFlex = document.createElement('div')
-       recipeFlex.setAttribute("class", "flex-container")
-
-       const recipeNameDOM = document.createElement('h1')
-       recipeNameDOM.setAttribute("class", "title")
-       recipeNameDOM.textContent = recipeName
-
-       const detailsBtn = document.createElement('a')
-       detailsBtn.setAttribute("class", "details-btn")
-       detailsBtn.setAttribute("href", "#")
-       detailsBtn.textContent = "View Recipe"
-
-       cardContainer.append(card)
-       card.append(recipeImageDOM)
-       card.append(recipeFlex)
-       recipeFlex.append(recipeNameDOM)
-       recipeFlex.append(detailsBtn)
+    card.setAttribute("class", "item")
+    
+    const recipeImageDOM = document.createElement('img')
+    recipeImageDOM.src = recipeImage
+    
+    const recipeFlex = document.createElement('div')
+    recipeFlex.setAttribute("class", "flex-container")
+    
+    
+    const detailsBtn = document.createElement('button')
+    detailsBtn.setAttribute("class", "collapsible")
+    const ingredients = document.createElement('div')
+    ingredients.setAttribute('class', 'content')
+    detailsBtn.textContent = recipeName
+    
+    const p = document.createElement('p')
+    p.textContent = 'ingredients'
+    ingredients.append(p)
+    card.append(recipeImageDOM)
+    card.append(recipeFlex)
+    recipeFlex.append(detailsBtn)
+    detailsBtn.append(ingredients)
+    cardContainer.append(card)
 }
