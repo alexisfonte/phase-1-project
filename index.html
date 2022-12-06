@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <p id="hey" style="color: rgb(234, 127, 255)"></p>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Project</title>
-    <h1 id="h1">My Recipe Book</h1>
+   
+    <!-- styling -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    
+    <!-- js file -->
+    <script defer type="text/javascript" src="index.js"></script>
+    
+    <title>Recipe Book</title>
   </head>
   <body>
-    <script defer type="text/javascript" src="index.js"></script>
+    <section>
+      <div class="container">
+        <h1 class="logo">Simply Sweet Recipes</h1>
+        <form class="search">
+          <input id="search-bar" type="text" placeholder="Search...">
+          <ion-icon name="search"></ion-icon>
+        </form>
+        <div class="search-result">
+          <div class="item">
+            <img src="./assets/brownie.jpeg" alt="recipe img">
+            <div class="flex-container">
+              <h1 class="title">Recipe Title</h1>
+              <a class="details-btn" href="#">View Recipe</a>
+              <!-- <p class="recipe-data">Recepie Data</p> -->
+            </div>
+          </div>
+          <div class="item">
+            <img src="./assets/brownie.jpeg" alt="recipe img">
+            <div class="flex-container">
+              <h1 class="title">Recipe Title</h1>
+              <a class="details-btn" href="#">View Recipe</a>
+              <!-- <p class="recipe-data">Recipe Data</p> -->
+            </div>
+          </div>
+          <div class="item">
+            <img src="./assets/brownie.jpeg" alt="recipe img">
+            <div class="flex-container">
+              <h1 class="title">Recipe Title</h1>
+              <a class="details-btn" href="#">View Recipe</a>
+              <!-- <p class="recipe-data">Recipe Data</p> -->
+            </div>
+          </div>
+        </div>
+        <form class="new-recipe">
+          <h1>New Recipe</h1>
+          <label for="recipe-name">Recipe Title:</label>
+          <input class="recipe-name" type="text">
+          <label for="image">Image:</label>
+          <input class="image" type="text">
+          <label for="ingredient">Ingredient:</label>
+          <input type="ingredient">
+            <select name="measurement">
+              <option value="select">select</option>
+              <option value="cups">c</option>
+              <option value="tablespoons">tbsp</option>
+              <option value="teaspoons">tsp</option>
+              <option value="gallon">gal</option>
+              <option value="quart">qt</option>
+              <option value="pint">pt</option>
+              <option value="fluid ounce">fl oz</option>
+              <option value="milliliters">ml</option>
+              <option value="liters">liters</option>
+              <option value="ounces">oz</option>
+              <option value="pounds">lbs</option>
+              <option value="grams">g</option>
+              <option value="each">ea</option>
+              <option value="none"></option>
+            </select>
+          <label for="directions">Directions:</label>
+          <input type="directions">
+          <button type="submit">Publish</button>
+        </form>
+      </div>
+    </section>
+    <!-- ionicons src -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
