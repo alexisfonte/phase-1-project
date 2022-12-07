@@ -71,6 +71,7 @@ form ion-icon{
     background-color: #fff;
     padding: 15px;
     overflow: hidden;
+    text-align: center;
 }
 .item img{
     width: 100%;
@@ -88,7 +89,7 @@ form ion-icon{
     font-size: 1.8rem;
     font-weight: 400;
 }
-.details-btn{
+/* .details-btn{
     text-decoration: none;
     text-align: center;
     width: 130px;
@@ -98,8 +99,8 @@ form ion-icon{
     font-size: 1.4rem;
     margin-top: 20px;
     align-self: flex-start;
-
-}
+    
+} */
 .recipe-data{
     color: #333;
     display: block;
@@ -107,6 +108,44 @@ form ion-icon{
     font-size: 1.4rem;
     letter-spacing: .05rem;
     line-height: 2rem;
+}
+/* .collapsible {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+} */
+/* .active, .collapsible:hover {
+    background-color: #fff;
+} */
+button{
+    display: flex;
+    -ms-flex-align: center;
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border: none;
+}
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: transparent;
+    font-size: 1.5rem;
+    margin-top: 12px;
+    font-weight: 500;
+}
+body.form-container{
+    width: 90%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .new-recipe{
     width: 90%;
@@ -117,35 +156,4 @@ form ion-icon{
 }
 .new-recipe h1{
     text-align: center;
-}
-.collapsible {
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-.active, .collapsible:hover {
-    background-color: #fff;
- }
- button{
-     font-size: 1.8rem;
-     font-family: 'Montserrat', sans-serif;
-     font-weight: 700;
-     border: none;
-     
- }
-    
-.content {
-        padding: 0 18px;
-        display: none;
-        overflow: hidden;
-        background-color: transparent;
-        font-size: 1.5rem;
-        margin-top: 12px;
-        font-weight: 500;
 }
