@@ -101,12 +101,25 @@ function handleSubmit(e) {
   e.preventDefault()
   newRecipeTitle = document.querySelector('.recipe-name').value
   newImage = document.querySelector('.image').value
-  newIngredient = document.querySelector('.ingredient')
+  newIngredient = document.querySelector('.ingredient').value
+  ingedientMeasurement = document.querySelector('.measurement').value
+  newDirections = document.querySelector('.directions').value
+  newAmount = document.querySelector('.amount').value
+  console.log(ingedientMeasurement)
   let newRecipe = {
     name: newRecipeTitle,
     image: newImage,
-    ingredient: newIngredient 
-  }
+    ingredients:  [{
+      ingredient: newIngredient,
+      amount: newAmount,
+      unit: ingedientMeasurement,
+    }],
+    instructions: [{
+      instruction: newDirections,
+  }]
+}
+
   e.target.reset()
   console.log(newRecipe)
+  createCard(newRecipe)
 }
