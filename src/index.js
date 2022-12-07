@@ -21,9 +21,7 @@ addIngredient.addEventListener('click', (e) => addNewIngredientInput(e))
 const form = document.querySelector('.new-recipe')
 form.addEventListener('submit', handleSubmit)
 
-let currentRecipe = {}
-
-
+// let currentRecipe = {}
 
 // RenderFunctions
 function renderCards(recipeArray){
@@ -37,6 +35,8 @@ function renderCards(recipeArray){
 // Callback Functions
 function createCard(recipe){
   currentRecipe = recipe
+  console.log(currentRecipe)
+
 
   const recipeName = recipe.name
   const recipeImage = recipe.image
@@ -49,6 +49,11 @@ function createCard(recipe){
     const recipeImageDOM = document.createElement('img')
     recipeImageDOM.src = recipeImage
     
+    const favoritesButton = document.createElement('button')
+    favoritesButton.setAttribute('class', 'favorites')
+    favoritesButton.textContent = "Add to Favorites"
+    console.log(favoritesButton)
+
     const detailsBtn = document.createElement('button')
     detailsBtn.setAttribute("class", recipeName)
     detailsBtn.textContent = recipeName
@@ -67,7 +72,6 @@ function createCard(recipe){
         li.textContent = `${ingredientAmount} ${ingredientUnit} ${ingredientName} `
         ul.append(li)
     })
-    
 
     const ol = document.createElement('ol')
     recipieInstruct.forEach(instruction => {
@@ -76,18 +80,37 @@ function createCard(recipe){
         ol.append(li)
     })
     
-  
     const deleteRecipe = document.createElement('button')
     deleteRecipe.textContent = 'delete'
     deleteRecipe.addEventListener('click', (e) => {
-      fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
-        method: 'DELETE'
-      })
-      .then(resp => resp.json())
-      card.remove()
+      // fetch(`http://localhost:3000/recipes/${recipe.id}`,{
+      //   method: 'DELETE'
+      // })
+      // .then(resp => resp.json())
+      // card.remove()
+      console.log(recipe)
     })
-    
+
+    favoritesButton.addEventListener('click', (e) => handleFavorite(recipe)
+      // console.log(currentRecipe)
+      // fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
+      //   method: 'PATCH',
+      //   body: JSON.stringify({
+      //     tags: !recipe.tags
+      //   }),
+      //   headers: {
+      //     'Content-type': 'application/json'
+      //   }
+      // })
+      // .then(resp => resp.json())
+      // .then(favorite => {
+      //   recipe.tags = !recipe.tags
+      // favoritesButton.textContent = recipe.tags ? "Favorited!" : "Add to Favorites"
+      // })
+    )
+
     card.append(recipeImageDOM)
+    card.append(favoritesButton)
     card.append(detailsBtn)
     detailsBtn.append(ingredients)
     ingredients.append(ul)
@@ -113,6 +136,10 @@ function createCard(recipe){
     
 }
 
+function handleFavorite(recipe) {
+  console.log(recipe)
+} 
+
 function handleSubmit(e) {
   e.preventDefault()
   newRecipeTitle = document.querySelector('.recipe-name').value
@@ -131,6 +158,7 @@ function handleSubmit(e) {
         body: JSON.stringify({
           name: newRecipeTitle,
         image: newImage,
+        tags: false,
         ingredients:  [{
           ingredient: newIngredient,
           amount: newAmount,
