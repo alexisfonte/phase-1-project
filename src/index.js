@@ -60,7 +60,7 @@ function createCard(recipe){
     })
     
     const recipieInstruct = recipe.instructions
-    //console.log(recipe.instructions)
+
     const ol = document.createElement('ol')
 
     recipieInstruct.forEach(instruction => {
@@ -90,6 +90,7 @@ function createCard(recipe){
         }
       });
     }
+
 }
 
 const form = document.querySelector('.new-recipe')
