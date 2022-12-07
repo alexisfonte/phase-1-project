@@ -1,14 +1,3 @@
-fetch("http://localhost:3000/recipes")
-.then(resp => resp.json())
-.then(recipeArray => renderCards(recipeArray))
-
-// DOM Selectors
-const cardContainer = document.querySelector('div.search-result')
-const addIngredient = document.querySelector('.add')
-addIngredient.addEventListener('click', (e) => addNewIngredient(e))
-
-let currentRecipe = {}
-
 // Example Html Card
 /* <div class="item">
             <img src="./assets/brownie.jpeg" alt="recipe img">
@@ -20,14 +9,26 @@ let currentRecipe = {}
             <!-- </div> -->
           </div> */
 
+fetch("http://localhost:3000/recipes")
+.then(resp => resp.json())
+.then(recipeArray => renderCards(recipeArray))
+
+// DOM Selectors
+const cardContainer = document.querySelector('div.search-result')
+const addIngredient = document.querySelector('.add')
+addIngredient.addEventListener('click', (e) => addNewIngredientInput(e))
+
+const form = document.querySelector('.new-recipe')
+form.addEventListener('submit', handleSubmit)
+
+let currentRecipe = {}
+
+
 
 // RenderFunctions
 function renderCards(recipeArray){
-
     recipeArray.forEach(recipe => {
         createCard(recipe)
-        
-        //console.log(recipe)
     })
 }
 
@@ -36,9 +37,11 @@ function renderCards(recipeArray){
 // Callback Functions
 function createCard(recipe){
   currentRecipe = recipe
-    //console.log(currentRecipe)
-    let recipeName = recipe.name
-    let recipeImage = recipe.image
+
+  const recipeName = recipe.name
+  const recipeImage = recipe.image
+  const ingredientList = recipe.ingredients
+  const recipieInstruct = recipe.instructions
     
     const card = document.createElement('div')
     card.setAttribute("class", "item")
@@ -48,23 +51,13 @@ function createCard(recipe){
     
     const detailsBtn = document.createElement('button')
     detailsBtn.setAttribute("class", recipeName)
+    detailsBtn.textContent = recipeName
+    
     const ingredients = document.createElement('div')
     ingredients.setAttribute('class', 'content')
-    detailsBtn.textContent = recipeName
-
-    const deleteRecipe = document.createElement('button')
-    deleteRecipe.textContent = 'delete'
-    deleteRecipe.addEventListener('click', (e) => {
-      fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
-        method: 'DELETE'
-      })
-      .then(resp => resp.json())
-      card.remove()
-    })
     
-    const ingredientList = recipe.ingredients
     const ul = document.createElement('ul')
-
+    
     ingredientList.forEach(ingredient => {
         let ingredientName = ingredient.ingredient
         let ingredientAmount = ingredient.amount
@@ -75,17 +68,25 @@ function createCard(recipe){
         ul.append(li)
     })
     
-    const recipieInstruct = recipe.instructions
 
     const ol = document.createElement('ol')
-
     recipieInstruct.forEach(instruction => {
         const li = document.createElement('li')
         li.textContent = instruction.instruction
         ol.append(li)
     })
     
-
+  
+    const deleteRecipe = document.createElement('button')
+    deleteRecipe.textContent = 'delete'
+    deleteRecipe.addEventListener('click', (e) => {
+      fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
+        method: 'DELETE'
+      })
+      .then(resp => resp.json())
+      card.remove()
+    })
+    
     card.append(recipeImageDOM)
     card.append(detailsBtn)
     detailsBtn.append(ingredients)
@@ -94,9 +95,10 @@ function createCard(recipe){
     ol.append(deleteRecipe)
     cardContainer.append(card)
     
+    // Functionality for the collapsible recipie details
+
     let coll = document.getElementsByClassName(recipeName);
-    //console.log(recipeBtn)
-    
+ 
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
         currentRecipe = recipe
@@ -108,12 +110,8 @@ function createCard(recipe){
         }
       });
     }
-
+    
 }
-
-const form = document.querySelector('.new-recipe')
-//console.log(form)
-form.addEventListener('submit', handleSubmit)
 
 function handleSubmit(e) {
   e.preventDefault()
@@ -124,18 +122,6 @@ function handleSubmit(e) {
   newDirections = document.querySelector('.directions').value
   newAmount = document.querySelector('.amount').value
   
-  let newRecipe = {
-    name: newRecipeTitle,
-    image: newImage,
-    ingredients:  [{
-      ingredient: newIngredient,
-      amount: newAmount,
-      unit: ingredientMeasurement,
-    }],
-    instructions: [{
-      instruction: newDirections,
-  }]
-}
   fetch('http://localhost:3000/recipes',{
     method: 'POST',
     headers:{
@@ -157,11 +143,10 @@ function handleSubmit(e) {
   })
   .then(resp => resp.json())
   .then(newPost => createCard(newPost))
-// createCard(newRecipe)
   e.target.reset()
 }
 
-function addNewIngredient(e){
+function addNewIngredientInput(e){
   e.preventDefault()
   console.log(e)
   const newInputSection = document.createElement('div')
