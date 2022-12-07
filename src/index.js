@@ -81,7 +81,7 @@ function createCard(recipe){
     //console.log(recipeBtn)
     
     for (let i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
+      coll[i].addEventListener("mouseover", function() {
         this.classList.toggle("active");
         if (ingredients.style.display === "block") {
           ingredients.style.display = "none";
@@ -102,24 +102,43 @@ function handleSubmit(e) {
   newRecipeTitle = document.querySelector('.recipe-name').value
   newImage = document.querySelector('.image').value
   newIngredient = document.querySelector('.ingredient').value
-  ingedientMeasurement = document.querySelector('.measurement').value
+  ingredientMeasurement = document.querySelector('.measurement').value
   newDirections = document.querySelector('.directions').value
   newAmount = document.querySelector('.amount').value
-  console.log(ingedientMeasurement)
+  
   let newRecipe = {
     name: newRecipeTitle,
     image: newImage,
     ingredients:  [{
       ingredient: newIngredient,
       amount: newAmount,
-      unit: ingedientMeasurement,
+      unit: ingredientMeasurement,
     }],
     instructions: [{
       instruction: newDirections,
   }]
 }
-
+  fetch('http://localhost:3000/recipes',{
+    method: 'POST',
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":"application/json",
+    },
+        body: JSON.stringify({
+          name: newRecipeTitle,
+        image: newImage,
+        ingredients:  [{
+          ingredient: newIngredient,
+          amount: newAmount,
+          unit: ingredientMeasurement,
+        }],
+        instructions: [{
+          instruction: newDirections,
+      }]
+    })
+  })
+  .then(resp => resp.json())
+  .then(newPost => createCard(newPost))
+// createCard(newRecipe)
   e.target.reset()
-  console.log(newRecipe)
-  createCard(newRecipe)
 }
