@@ -5,37 +5,28 @@ fetch("http://localhost:3000/recipes")
 // DOM Selectors
 const cardContainer = document.querySelector('div.search-result')
 
+
+
 // Example Html Card
-// <div class="item">
-//             <img src="./assets/brownie.jpeg" alt="recipe img">
-//             <div class="flex-container">
-//               <h1 class="title">Recipe Title</h1>
-//               <a class="details-btn" href="#">View Recipe</a>
-//             </div>
-//           </div>
+/* <div class="item">
+            <img src="./assets/brownie.jpeg" alt="recipe img">
+            <!-- <div class="flex-container"> -->
+              <button type="button" class="collapsible">Open Collapsible</button>
+              <div class="content">
+                <p>Lorem ipsum...</p>
+              </div>
+            <!-- </div> -->
+          </div> */
 
 
 // RenderFunctions
 function renderCards(recipeArray){
     recipeArray.forEach(recipe => {
         createCard(recipe)
+        //console.log(recipe)
     })
 }
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-coll[i].addEventListener("click", function() {
-this.classList.toggle("active");
-var content = this.nextElementSibling;
-if (content.style.display === "block") {
-content.style.display = "none";
-} else {
-content.style.display = "block";
-}
-});
-}
 
 
 // Callback Functions
@@ -49,22 +40,72 @@ function createCard(recipe){
     const recipeImageDOM = document.createElement('img')
     recipeImageDOM.src = recipeImage
     
-    const recipeFlex = document.createElement('div')
-    recipeFlex.setAttribute("class", "flex-container")
-    
-    
     const detailsBtn = document.createElement('button')
-    detailsBtn.setAttribute("class", "collapsible")
+    detailsBtn.setAttribute("class", recipeName)
     const ingredients = document.createElement('div')
     ingredients.setAttribute('class', 'content')
     detailsBtn.textContent = recipeName
     
-    const p = document.createElement('p')
-    p.textContent = 'ingredients'
-    ingredients.append(p)
+    const ingredientList = recipe.ingredients
+    const ul = document.createElement('ul')
+
+    ingredientList.forEach(ingredient => {
+        let ingredientName = ingredient.ingredient
+        let ingredientAmount = ingredient.amount
+        let ingredientUnit = ingredient.unit
+        
+        const li = document.createElement('li')
+        li.textContent = `${ingredientAmount} ${ingredientUnit} ${ingredientName} `
+        ul.append(li)
+    })
+    
+    const recipieInstruct = recipe.instructions
+    //console.log(recipe.instructions)
+    const ol = document.createElement('ol')
+
+    recipieInstruct.forEach(instruction => {
+        const li = document.createElement('li')
+        li.textContent = instruction.instruction
+        ol.append(li)
+    })
+    
+
     card.append(recipeImageDOM)
-    card.append(recipeFlex)
-    recipeFlex.append(detailsBtn)
+    card.append(detailsBtn)
     detailsBtn.append(ingredients)
+    ingredients.append(ul)
+    ingredients.append(ol)
     cardContainer.append(card)
+    
+    let coll = document.getElementsByClassName(recipeName);
+    //console.log(recipeBtn)
+    
+    for (let i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        if (ingredients.style.display === "block") {
+          ingredients.style.display = "none";
+        } else {
+          ingredients.style.display = "block";
+        }
+      });
+    }
+}
+
+const form = document.querySelector('.new-recipe')
+//console.log(form)
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(e) {
+  e.preventDefault()
+  newRecipeTitle = document.querySelector('.recipe-name').value
+  newImage = document.querySelector('.image').value
+  newIngredient = document.querySelector('.ingredient')
+  let newRecipe = {
+    name: newRecipeTitle,
+    image: newImage,
+    ingredient: newIngredient 
+  }
+  e.target.reset()
+  console.log(newRecipe)
 }
