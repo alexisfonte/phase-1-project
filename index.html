@@ -15,7 +15,7 @@
     <title>Recipe Book</title>
   </head>
   <body>
-    <section>
+    <section class="recipes">
       <div class="container">
         <h1 class="logo">Simply Sweet Recipes</h1>
         <form class="search">
@@ -33,41 +33,49 @@
           </div> -->
         </div>
       </section>
-      <div class="form-container">
-        <div class="form-wrap">
-          <form class="new-recipe">
+      <section class="form">
+        <div class="form-container">
+          <div class="form-wrap">
             <h1>New Recipe</h1>
-            <label for="recipe-name">Recipe Title:</label>
-            <input class="recipe-name" type="text">
-            <label for="image">Image:</label>
-            <input class="image" type="text">
-            <label for="ingredient">Ingredient:</label>
-            <input type="ingredient" class="ingredient">
-            <input class="amount">
-              <select name="measurement" class="measurement">
-                <option value="select">select</option>
-                <option value="cups">c</option>
-                <option value="tablespoons">tbsp</option>
-                <option value="teaspoons">tsp</option>
-                <option value="gallon">gal</option>
-                <option value="quart">qt</option>
-                <option value="pint">pt</option>
-                <option value="fluid ounce">fl oz</option>
-                <option value="milliliters">ml</option>
-                <option value="liters">liters</option>
-                <option value="ounces">oz</option>
-                <option value="pounds">lbs</option>
-                <option value="grams">g</option>
-                <option value="each">ea</option>
-                <option value="none"></option>
-              </select>
-            <label for="directions">Directions:</label>
-            <input type="directions" class="directions">
-            <button type="submit">Publish</button>
-          </form>
+            <form class="new-recipe">
+              <label for="recipe-name">Recipe Title:</label>
+              <input class="recipe-name" type="text" placeholder="Recipe Name">
+              <label for="image">Image:</label>
+              <input class="image" type="text">
+              <div class="plus-create">
+                <label for="ingredient">Ingredients</label>
+                <a href="#" class="add">&plus;</a>
+              </div>
+              <div class="ingredient-section">
+                <div class="input">
+                  <input type="ingredient" class="ingredient" placeholder="ingredient">
+                  <input class="amount" placeholder="amount">
+                  <select name="measurement" class="measurement">
+                    <option value="select">select</option>
+                    <option value="cups">c</option>
+                    <option value="tablespoons">tbsp</option>
+                    <option value="teaspoons">tsp</option>
+                    <option value="gallon">gal</option>
+                    <option value="quart">qt</option>
+                    <option value="pint">pt</option>
+                    <option value="fluid ounce">fl oz</option>
+                    <option value="milliliters">ml</option>
+                    <option value="liters">liters</option>
+                    <option value="ounces">oz</option>
+                    <option value="pounds">lbs</option>
+                    <option value="grams">g</option>
+                    <option value="each">ea</option>
+                    <option value="none"></option>
+                  </select>
+                </div>
+              </div>
+              <label for="directions">Directions:</label>
+              <input type="directions" class="directions">
+              <button type="submit">Publish</button>
+            </form>
+          </div>
         </div>
-      </div>
-      </div>
+      </section>
     <!-- ionicons src -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

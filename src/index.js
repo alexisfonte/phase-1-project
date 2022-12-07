@@ -4,8 +4,10 @@ fetch("http://localhost:3000/recipes")
 
 // DOM Selectors
 const cardContainer = document.querySelector('div.search-result')
+const addIngredient = document.querySelector('.add')
+addIngredient.addEventListener('click', (e) => addNewIngredient(e))
 
-
+let currentRecipe = {}
 
 // Example Html Card
 /* <div class="item">
@@ -21,8 +23,10 @@ const cardContainer = document.querySelector('div.search-result')
 
 // RenderFunctions
 function renderCards(recipeArray){
+
     recipeArray.forEach(recipe => {
         createCard(recipe)
+        
         //console.log(recipe)
     })
 }
@@ -31,6 +35,8 @@ function renderCards(recipeArray){
 
 // Callback Functions
 function createCard(recipe){
+  currentRecipe = recipe
+    //console.log(currentRecipe)
     let recipeName = recipe.name
     let recipeImage = recipe.image
     
@@ -45,6 +51,16 @@ function createCard(recipe){
     const ingredients = document.createElement('div')
     ingredients.setAttribute('class', 'content')
     detailsBtn.textContent = recipeName
+
+    const deleteRecipe = document.createElement('button')
+    deleteRecipe.textContent = 'delete'
+    deleteRecipe.addEventListener('click', (e) => {
+      fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
+        method: 'DELETE'
+      })
+      .then(resp => resp.json())
+      card.remove()
+    })
     
     const ingredientList = recipe.ingredients
     const ul = document.createElement('ul')
@@ -75,13 +91,15 @@ function createCard(recipe){
     detailsBtn.append(ingredients)
     ingredients.append(ul)
     ingredients.append(ol)
+    ol.append(deleteRecipe)
     cardContainer.append(card)
     
     let coll = document.getElementsByClassName(recipeName);
     //console.log(recipeBtn)
     
     for (let i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("mouseover", function() {
+      coll[i].addEventListener("click", function() {
+        currentRecipe = recipe
         this.classList.toggle("active");
         if (ingredients.style.display === "block") {
           ingredients.style.display = "none";
@@ -141,4 +159,27 @@ function handleSubmit(e) {
   .then(newPost => createCard(newPost))
 // createCard(newRecipe)
   e.target.reset()
+}
+
+function addNewIngredient(e){
+  e.preventDefault()
+  console.log(e)
+  const newInputSection = document.createElement('div')
+  
+  const ingredientInput = document.createElement('input')
+  ingredientInput.setAttribute('class', 'ingredient')
+  ingredientInput.setAttribute('placeholder', 'ingredient')
+  
+  const amountInput = document.createElement('input')
+  amountInput.setAttribute('class', 'amount')
+  amountInput.setAttribute('placeholder', 'amount')
+  console.log(amountInput)
+
+  const deleteBtn = document.createElement('a')
+  deleteBtn.setAttribute('href', '#')  
+  deleteBtn.textContent = 'x'
+  newInputSection.append(ingredientInput)
+  newInputSection.append(amountInput)
+  newInputSection.append(deleteBtn)
+  document.querySelector('.ingredient-section').appendChild(newInputSection)
 }
