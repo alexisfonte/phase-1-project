@@ -60,7 +60,7 @@ function createCard(recipe){
     })
     
     const recipieInstruct = recipe.instructions
-    console.log(recipe.instructions)
+
     const ol = document.createElement('ol')
 
     recipieInstruct.forEach(instruction => {
@@ -90,4 +90,23 @@ function createCard(recipe){
         }
       });
     }
+
+}
+
+const form = document.querySelector('.new-recipe')
+//console.log(form)
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(e) {
+  e.preventDefault()
+  newRecipeTitle = document.querySelector('.recipe-name').value
+  newImage = document.querySelector('.image').value
+  newIngredient = document.querySelector('.ingredient')
+  let newRecipe = {
+    name: newRecipeTitle,
+    image: newImage,
+    ingredient: newIngredient 
+  }
+  e.target.reset()
+  console.log(newRecipe)
 }
