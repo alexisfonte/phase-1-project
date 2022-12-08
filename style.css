@@ -12,7 +12,7 @@ img{
 html{
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-    color: #333;
+    color: black;
     font-weight: 600;
 }
 section.recipes{
@@ -22,7 +22,7 @@ section.recipes{
     align-items: center;
     justify-content: center;
     padding: 100px 0;
-    background-color: #ece7e1;
+    background-color: #ECE7E1;
 }
 .container{
     width: 90%;
@@ -33,7 +33,7 @@ section.recipes{
 .logo{
     text-align: center;
     font-size: 4rem;
-    color: #333;
+    color: black;
     margin-bottom: 30px
 }
 /* .search{
@@ -56,7 +56,7 @@ form ion-icon{
     width: 9%;
     font-size: 3rem;
     margin: -9px;
-    color: #333;
+    color: black;
 }
 .card-container{
     margin-top: 50px;
@@ -84,7 +84,7 @@ form ion-icon{
     justify-content: space-between;
 }
 .item .title{
-    color: #333;
+    color: black;
     margin: 20px 10px 0 0;
     font-size: 1.8rem;
     font-weight: 400;
@@ -104,8 +104,13 @@ button#details-button{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     border: none;
+    background-color: transparent;
 }
-.content {
+button#details-button:hover{
+    background-color:#ECE7E1;
+    color: black !important;
+}
+.content{
     margin: 12px;
     padding: 0 18px;
     display: none;
@@ -113,10 +118,11 @@ button#details-button{
     font-size: 1.5rem;
     margin-top: 12px;
     font-weight: 500;
+    text-align: left;
 }
 .content ul{
     padding-bottom: 10px;
-    border-bottom: #333 solid 2px;
+    border-bottom: black solid 2px;
     margin-bottom: 12px;
 }
 .content li{
@@ -204,6 +210,10 @@ section.form{
     font-weight: 700;
     border: none;
     border-radius: 4px;
+  }
+  button[type="submit"]:hover{
+    background-color: black;
+    color:white !important;
   }
   .plus-create{
     display: flex;
