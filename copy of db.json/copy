@@ -532,3 +532,341 @@
     }
   ]
 }
+
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Brownies",
+      "image": "https://scontent-iad3-1.xx.fbcdn.net/v/t1.6435-9/91296522_10158061260434326_4690995213773045760_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=7cRPuxfWR9cAX_MkYNc&_nc_ht=scontent-iad3-1.xx&oh=00_AfDYz0p8kKXui-qv7py3Dp3NdGxrNAK2JvYotmvmAE9J7Q&oe=63B6C94B",
+      "tags": false,
+      "ingredients": [
+        "1/2 cup unsalted butter melted","1/2 cup unsweetened cocoa powder","1 cup granulated sugar","2 each large eggs","1 tsp vanilla extract","1/2 cup all-purpose flour","1/4 tsp salt"
+      ],
+      "instructions": [
+        "Preheat oven to 350°F. Grease an 8x8 square pan and set aside.",
+        "In a medium bowl, combine melted butter and cocoa and sugar. Stir until fully dissolved.",
+        "Add eggs one at a time then vanilla and stir until well combined.",
+        "Stir in flour and salt until the flour is fully combine. Be careful not to overmix mix.",
+        "Spread in pan and bake for approximately 20-22 minutes or until the center is slightly set. Be careful not to over-bake!",
+        "Cool completely then cut into 9 large squares or 16 small squares. Enjoy!"
+      ]
+    }
+    ,
+    {
+      "id": 2,
+      "name": "Chocolate Chip Cookies",
+      "image": "https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookie-recipe-6.jpg",
+      "tags": false,
+      "ingredients": [
+        {
+          "ingredient_id": "1",
+          "ingredient": "salted butter, softened",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "2",
+          "ingredient": "granulated sugar",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "3",
+          "ingredient": "light brown sugar packed",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "4",
+          "ingredient": "vanilla extract",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "5",
+          "ingredient": "large eggs",
+          "amount": "2",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "6",
+          "ingredient": "all-purpose flour",
+          "amount": "3",
+          "unit": "cups"
+        },
+        {
+          "ingredient_id": "7",
+          "ingredient": "baking soda",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "8",
+          "ingredient": "baking powder",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "9",
+          "ingredient": "sea salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "10",
+          "ingredient": "chocolate chips (or chunks, or chopped chocolate)",
+          "amount": "2",
+          "unit": "cups"
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 375 degrees F. Line a baking pan with parchment paper and set aside.",
+        "In a separate bowl mix flour, baking soda, salt, baking powder. Set aside.",
+        "Cream together butter and sugars until combined.",
+        "Beat in eggs and vanilla until fluffy.",
+        "Mix in the dry ingredients until combined.",
+        "Add the chocolate chips and mix well.",
+        "Roll 2-3 tbs of dough at a time into balls and place them evenly spaced on your prepared cookie sheets.",
+        "Bake in preheated oven for approximately 8-10 minutes. Take them out when they are just BARELY starting to turn brown.",
+        "Let them sit on the baking pan for 2 minutes before removing to cooling rack."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Molten Chocolate Lava Cakes",
+      "image": "https://www.aheadofthyme.com/wp-content/uploads/2016/02/molten-chocolate-lava-cakes-2.jpg",
+      "tags": false,
+      "ingredients": [
+        {
+          "ingredient_id": "1",
+          "ingredient": "semi-sweet chocolate, coursely chopped",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "2",
+          "ingredient": "unsalted butter, cut into ½ inch cubes",
+          "amount": "1/2",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "3",
+          "ingredient": "large eggs",
+          "amount": "2",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "4",
+          "ingredient": "large egg yolks",
+          "amount": "2",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "5",
+          "ingredient": "vanilla extract",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "6",
+          "ingredient": "confectioners' sugar",
+          "amount": "1/4",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "7",
+          "ingredient": "salt",
+          "amount": "1/8",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "8",
+          "ingredient": "all-purpose flour",
+          "amount": "3",
+          "unit": "tbsp"
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 425 F. Grease four 6-oz. ramekins or three 8-oz. ramekins with non-stick cooking spray and dust with cocoa powder, tapping out the excess cocoa powder. This will help the lava cakes come out easily when inverted.",
+        "Melt the chocolate and butter in a medium heat-proof bowl and set aside to allow it to slightly cool. You can melt the chocolate either on the stove or in the microwave.",
+        "In a medium mixing bowl, use an electric hand mixer or a whisk to beat together the eggs, egg yolks, vanilla extract, sugar, and salt, on low speed, until combined, about 1 minute.",
+        "Pour in the melted chocolate into the egg mixture, along with the flour. Use a rubber spatula and fold it in until fully combined. The batter will be thick but should not be lumpy.",
+        "Place the ramekins on a quarter sheet baking pan and divide the batter between them. Bake for 12-14 minutes until the edges look solid and firm. The tops will still be soft with a slight jiggle in the center. Do not overcook as overcooking will cause the center to completely solidify and not be gooey.",
+        "Allow the cakes to cool in the ramekins for 1 minute, then cover each with an inverted plate and use an oven mitt to flip them over and release the cakes onto the plate.",
+        "Add toppings (such as a scoop of vanilla ice cream, dusting with powdered sugar, garnishing with fresh fruit, or a drizzle of salted caramel sauce or chocolate sauce). Serve immediately."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Banana Bread",
+      "image": "https://www.simplyrecipes.com/thmb/1qlP36kzpJIkLq3DR10qjINflcI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Easy-Banana-Bread-LEAD-2-66837beab63c495292d89743c6767171.jpg",
+      "tags": false,
+      "ingredients": [
+        {
+          "ingredient_id": "1",
+          "ingredient": "unsalted butter melted",
+          "amount": "1/2",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "2",
+          "ingredient": "large ripe bananas",
+          "amount": "3",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "3",
+          "ingredient": "large eggs",
+          "amount": "2",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "4",
+          "ingredient": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "5",
+          "ingredient": "all-purpose flour",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "ingredient_id": "6",
+          "ingredient": "granulated sugar",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "7",
+          "ingredient": "baking soda",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "8",
+          "ingredient": "salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 350 degrees. Spray a loaf pan with non-stick cooking spray or grease with butter and set aside.",
+        "In a large bowl, combine melted butter and bananas and mash with a fork.",
+        "Add the vanilla extract and egg to the bowl and use the same fork to mash and stir until no yellow streaks of egg remain.",
+        "Pour in the melted chocolate into the egg mixture, along with the flour. Use a rubber spatula and fold it in until fully combined. The batter will be thick but should not be lumpy.",
+        "In a second large bowl whisk together the flour, sugar, baking soda, and salt.",
+        "Add the dry ingredients to the wet ingredients and mix together with a spatula just until combined. Do not overmix.",
+        "Pour the batter into prepared loaf pan and bake for 45-55 minutes until a toothpick inserted in the center of the bread comes out clean."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Lemon Blueberry Bread",
+      "image": "https://www.aheadofthyme.com/wp-content/uploads/2021/07/lemon-blueberry-bread-8.jpg",
+      "tags": true,
+      "ingredients": [
+        {
+          "ingredient_id": "1",
+          "ingredient": "all-purpose flour",
+          "amount": "1 1/2",
+          "unit": "cups"
+        },
+        {
+          "ingredient_id": "2",
+          "ingredient": "baking powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "3",
+          "ingredient": "granulated sugar",
+          "amount": "1/3",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "4",
+          "ingredient": "salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "5",
+          "ingredient": "milk",
+          "amount": "1/2",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "6",
+          "ingredient": "vegetable oil",
+          "amount": "1/3",
+          "unit": "cup"
+        },
+        {
+          "ingredient_id": "7",
+          "ingredient": "egg",
+          "amount": "1",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "8",
+          "ingredient": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "ingredient_id": "9",
+          "ingredient": "lemon, juiced and zested",
+          "amount": "1",
+          "unit": "each"
+        },
+        {
+          "ingredient_id": "10",
+          "ingredient": "fresh blueberries",
+          "amount": "1 1/2",
+          "unit": "cups"
+        }
+      ],
+      "instructions": [
+        "Preheat the oven to 350 F. Lightly grease a 9x5-inch loaf pan with cooking spray oil.",
+        "In a large mixing bowl, combine the dry ingredients including flour, baking powder, sugar, and salt. Whisk together until evenly distributed and set aside.",
+        "In a medium mixing bowl, whisk well to combine the wet ingredients including milk, oil, egg, vanilla extract, lemon juice, and lemon zest.",
+        "Pour the wet ingredients into the dry ingredients and mix together using a rubber spatula until just combined and no dry ingredients are visible. Do not overmix (overmixing will make the bread denser and firmer). Fold in 1 cup of blueberries until evenly mixed.",
+        "Pour the batter into the prepared loaf pan and add the remaining ½ cup blueberry on top.",
+        "Bake for 55 minutes until golden brown and a toothpick inserted into the center of the cake comes out clean. Let cool for 10-15 minutes, then invert to remove the loaf.",
+        "Serve warm or at room temperature. Drizzle with glaze if desired."
+      ]
+    },
+    {
+      "name": "brownie",
+      "image": {},
+      "tags": false,
+      "ingredients": [
+        {
+          "ingredient": [
+            "flour",
+            "chocolat",
+            "sugar"
+          ],
+          "amount": [
+            "1",
+            "1",
+            "2"
+          ],
+          "unit": [
+            "cups",
+            "cups",
+            "milliliters"
+          ]
+        }
+      ],
+      "instructions": [
+        "melt",
+        "bake"
+      ],
+      "id": 6
+    }
+  ]
+}

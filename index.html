@@ -18,11 +18,7 @@
     <section class="recipes">
       <div class="container">
         <h1 class="logo">Simply Sweet Recipes</h1>
-        <form class="search">
-          <input id="search-bar" type="text" placeholder="Search...">
-          <ion-icon name="search"></ion-icon>
-        </form>
-        <div class="search-result">
+        <div class="card-container">
           <!-- example item  -->
           <!-- <div class="item">
             <img src="./assets/brownie.jpeg" alt="recipe img"> 
@@ -37,15 +33,14 @@
         <div class="form-container">
           <div class="form-wrap">
             <h1>New Recipe</h1>
-            <form class="new-recipe">
+            <form class="new-recipe" >
               <label for="recipe-name">Recipe Title:</label>
-              <input class="recipe-name" type="text" placeholder="Recipe Name">
+              <input class="recipe-name" type="text" placeholder="Recipe Name" required>
               <label for="image">Image:</label>
-              <input class="image" type="file"
-                accept="image/png, image/jpeg">
+              <input class="image" type="text" placeholder="Insert Image Address Here">
               <div class="plus-create">
                 <label for="ingredient">Ingredients</label>
-                <a href="#" class="add">&plus;</a>
+                <a id="add" href="#" class="add">&plus;</a>
               </div>
               <div class="ingredient-section">
                 <div class="input">
@@ -72,10 +67,12 @@
               </div>
               <div class="plus-create">
                 <label for="directions">Directions</label>
-                <a href="#" class="addDirection">&plus;</a>
+                <a id="add" href="#" class="addDirection">&plus;</a>
               </div>
               <div class="addDirections">
-                <input type="directions" class="directions" placeholder="Directions:">
+                <div id="new-direction">
+                  <input type="directions" class="direction" placeholder="Directions:">
+                </div>
               </div>
               <button type="submit">Publish</button>
             </form>

@@ -14,18 +14,27 @@ fetch("http://localhost:3000/recipes")
 .then(recipeArray => renderCards(recipeArray))
 
 // DOM Selectors
-const cardContainer = document.querySelector('div.search-result')
+const cardContainer = document.querySelector('div.card-container')
 const addIngredient = document.querySelector('.add')
 addIngredient.addEventListener('click', (e) => addNewIngredientInput(e))
 
 const addDirection = document.querySelector('.addDirection')
 addDirection.addEventListener('click', (e) => addNewDirectionInput(e))
-console.log(addDirection)
 
-//console.log(select)
 
 const form = document.querySelector('.new-recipe')
 form.addEventListener('submit', handleSubmit)
+
+const plusBtn = document.querySelectorAll('a#add')
+
+plusBtn.forEach( btn =>
+  btn.addEventListener('mouseenter', (event) => {
+    btn.style.color = 'black'
+    setTimeout(() => {
+      btn.style.color = "";
+    }, 500);
+  }, false)
+  )
 
 // RenderFunctions
 function renderCards(recipeArray){
@@ -60,20 +69,16 @@ function createCard(recipe){
   
   const ul = document.createElement('ul')
   
-  ingredientList.forEach(ingredient => {
-    let ingredientName = ingredient.ingredient
-    let ingredientAmount = ingredient.amount
-    let ingredientUnit = ingredient.unit
-    
+  ingredientList.forEach(ingredient => { 
     const li = document.createElement('li')
-    li.textContent = `${ingredientAmount} ${ingredientUnit} ${ingredientName} `
+    li.textContent = ingredient
     ul.append(li)
   })
   
   const ol = document.createElement('ol')
   recipieInstruct.forEach(instruction => {
     const li = document.createElement('li')
-    li.textContent = instruction.instruction
+    li.textContent = instruction
     ol.append(li)
   })
   
@@ -142,11 +147,40 @@ function createCard(recipe){
 function handleSubmit(e) {
   e.preventDefault()
   newRecipeTitle = document.querySelector('.recipe-name').value
+  
+  
   newImage = document.querySelector('.image').value
-  newIngredient = document.querySelector('.ingredient').value
-  ingredientMeasurement = document.querySelector('.measurement').value
-  newDirections = document.querySelector('.directions').value
-  newAmount = document.querySelector('.amount').value
+  
+  newIngredient = document.querySelectorAll('input.ingredient')
+  let ingredientArray = []
+  newIngredient.forEach(ingredient => {
+    ingredientArray.push(ingredient.value)
+  })
+  
+  newAmount = document.querySelectorAll('input.amount')
+  let amountArray = []
+  newAmount.forEach(amount => {
+    amountArray.push(amount.value)
+  })
+  ingredientMeasurement = document.querySelectorAll('select')
+  let measurementArray=[]
+  ingredientMeasurement.forEach(meas => {
+    measurementArray.push(meas.value)
+  })
+  let totalIngredient = []
+  
+  ingredientArray.forEach((ingredient, index) => {
+    const amount = amountArray[index]
+    const measurement = measurementArray[index]
+    totalIngredient.push(`${amount} ${measurement} ${ingredient}`)
+  })
+  
+  const directionsObject = document.querySelectorAll('#new-direction input.direction')
+  let instructionArray = []
+  directionsObject.forEach(object => {
+    instructionArray.push(object.value)
+  })
+  
   
   fetch('http://localhost:3000/recipes',{
     method: 'POST',
@@ -158,19 +192,22 @@ function handleSubmit(e) {
       name: newRecipeTitle,
       image: newImage,
       tags: false,
-      ingredients:  [{
-        ingredient: newIngredient,
-        amount: newAmount,
-        unit: ingredientMeasurement,
-      }],
-      instructions: [{
-        instruction: newDirections,
-      }]
+      ingredients: totalIngredient,
+      instructions: instructionArray,
     })
   })
   .then(resp => resp.json())
   .then(newPost => createCard(newPost))
   e.target.reset()
+}
+
+function validate(recipe) {
+  if (recipe) {
+    return true;
+  } else {
+    alert('Please fill the recipe title');
+    return false;
+  }
 }
 
 function addNewIngredientInput(e){
@@ -287,3 +324,4 @@ function addNewDirectionInput(e){
   newInputSection.append(deleteBtn)
   document.querySelector('.addDirections').append(newInputSection)
 }
+
