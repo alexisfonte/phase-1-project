@@ -89,18 +89,6 @@ form ion-icon{
     font-size: 1.8rem;
     font-weight: 400;
 }
-/* .details-btn{
-    text-decoration: none;
-    text-align: center;
-    width: 130px;
-    padding: 10px 0;
-    background-color: #ece7e1;
-    color: #333;
-    font-size: 1.4rem;
-    margin-top: 20px;
-    align-self: flex-start;
-    
-} */
 .recipe-data{
     color: #333;
     display: block;
@@ -109,21 +97,7 @@ form ion-icon{
     letter-spacing: .05rem;
     line-height: 2rem;
 }
-/* .collapsible {
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-} */
-/* .active, .collapsible:hover {
-    background-color: #fff;
-} */
-button{
+button#details-button{
     margin-top: 12px;
     text-align: center;
     font-size: 1.8rem;
@@ -132,14 +106,39 @@ button{
     border: none;
 }
 .content {
+    margin: 12px;
     padding: 0 18px;
     display: none;
-    overflow: hidden;
     background-color: transparent;
     font-size: 1.5rem;
     margin-top: 12px;
     font-weight: 500;
 }
+.content ul{
+    padding-bottom: 10px;
+    border-bottom: #333 solid 2px;
+    margin-bottom: 12px;
+}
+.content li{
+    margin: 5px;
+}
+.buttonsDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttonsDiv button{
+    margin-top: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border: none;
+}
+
+/* form styling */
+
 section.form{
     width: 100%;
     display: flex;
@@ -191,7 +190,6 @@ section.form{
     color: white;
     border: 1px solid white;
     background-color: black;
-    cursor: pointer;
     transition: all 0.3s;
   }
   
@@ -199,24 +197,32 @@ section.form{
     background-color: #ece7e1;
     padding: 1rem;
     margin-bottom: 12px;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
   }
   .plus-create{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     
   }
   .add{
     text-decoration: none;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: green;
+    width: 25px;
+    height: 25px;
+    background: rgb(150, 210, 150);
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 12px;
+    margin-left: 25px;
+    border-radius: 4px;
   }
   

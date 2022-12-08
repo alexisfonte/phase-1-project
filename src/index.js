@@ -21,8 +21,6 @@ addIngredient.addEventListener('click', (e) => addNewIngredientInput(e))
 const form = document.querySelector('.new-recipe')
 form.addEventListener('submit', handleSubmit)
 
-// let currentRecipe = {}
-
 // RenderFunctions
 function renderCards(recipeArray){
     recipeArray.forEach(recipe => {
@@ -34,10 +32,6 @@ function renderCards(recipeArray){
 
 // Callback Functions
 function createCard(recipe){
-  currentRecipe = recipe
-  console.log(currentRecipe)
-
-
   const recipeName = recipe.name
   const recipeImage = recipe.image
   const ingredientList = recipe.ingredients
@@ -49,12 +43,9 @@ function createCard(recipe){
     const recipeImageDOM = document.createElement('img')
     recipeImageDOM.src = recipeImage
     
-    const favoritesButton = document.createElement('button')
-    favoritesButton.setAttribute('class', 'favorites')
-    favoritesButton.textContent = "Add to Favorites"
-    console.log(favoritesButton)
-
+    
     const detailsBtn = document.createElement('button')
+    detailsBtn.setAttribute("id", "details-button")
     detailsBtn.setAttribute("class", recipeName)
     detailsBtn.textContent = recipeName
     
@@ -64,58 +55,64 @@ function createCard(recipe){
     const ul = document.createElement('ul')
     
     ingredientList.forEach(ingredient => {
-        let ingredientName = ingredient.ingredient
-        let ingredientAmount = ingredient.amount
-        let ingredientUnit = ingredient.unit
-        
-        const li = document.createElement('li')
-        li.textContent = `${ingredientAmount} ${ingredientUnit} ${ingredientName} `
-        ul.append(li)
-    })
-
-    const ol = document.createElement('ol')
-    recipieInstruct.forEach(instruction => {
-        const li = document.createElement('li')
-        li.textContent = instruction.instruction
-        ol.append(li)
+      let ingredientName = ingredient.ingredient
+      let ingredientAmount = ingredient.amount
+      let ingredientUnit = ingredient.unit
+      
+      const li = document.createElement('li')
+      li.textContent = `${ingredientAmount} ${ingredientUnit} ${ingredientName} `
+      ul.append(li)
     })
     
-    const deleteRecipe = document.createElement('button')
-    deleteRecipe.textContent = 'delete'
-    deleteRecipe.addEventListener('click', (e) => {
-      // fetch(`http://localhost:3000/recipes/${recipe.id}`,{
-      //   method: 'DELETE'
-      // })
-      // .then(resp => resp.json())
-      // card.remove()
-      console.log(recipe)
+    const ol = document.createElement('ol')
+    recipieInstruct.forEach(instruction => {
+      const li = document.createElement('li')
+      li.textContent = instruction.instruction
+      ol.append(li)
+    })
+    
+    const buttonsDiv = document.createElement('div')
+    buttonsDiv.setAttribute('class', 'buttonsDiv')
+
+    const favoritesButton = document.createElement('button')
+    favoritesButton.setAttribute('class', 'favorites')
+    favoritesButton.textContent = "Add to Favorites"
+    favoritesButton.addEventListener('click', (e) => {
+      recipe.tags = !recipe.tags
+      favoritesButton.textContent = recipe.tags ? "Add to Favorites" : "Favorited"
+      
+      fetch(`http://localhost:3000/recipes/${recipe.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+          tags: !recipe.tags
+        }),
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(resp => resp.json())
+      
     })
 
-    favoritesButton.addEventListener('click', (e) => handleFavorite(recipe)
-      // console.log(currentRecipe)
-      // fetch(`http://localhost:3000/recipes/${currentRecipe.id}`,{
-      //   method: 'PATCH',
-      //   body: JSON.stringify({
-      //     tags: !recipe.tags
-      //   }),
-      //   headers: {
-      //     'Content-type': 'application/json'
-      //   }
-      // })
-      // .then(resp => resp.json())
-      // .then(favorite => {
-      //   recipe.tags = !recipe.tags
-      // favoritesButton.textContent = recipe.tags ? "Favorited!" : "Add to Favorites"
-      // })
-    )
+    const deleteRecipe = document.createElement('button')
+    deleteRecipe.textContent = 'Delete'
+    deleteRecipe.addEventListener('click', (e) => {
+      fetch(`http://localhost:3000/recipes/${recipe.id}`,{
+        method: 'DELETE'
+      })
+      .then(resp => resp.json())
+      card.remove()
+    })
+
 
     card.append(recipeImageDOM)
-    card.append(favoritesButton)
     card.append(detailsBtn)
     detailsBtn.append(ingredients)
     ingredients.append(ul)
     ingredients.append(ol)
-    ol.append(deleteRecipe)
+    ol.append(buttonsDiv)
+    buttonsDiv.append(favoritesButton)
+    buttonsDiv.append(deleteRecipe)
     cardContainer.append(card)
     
     // Functionality for the collapsible recipie details
@@ -124,7 +121,6 @@ function createCard(recipe){
  
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
-        currentRecipe = recipe
         this.classList.toggle("active");
         if (ingredients.style.display === "block") {
           ingredients.style.display = "none";
@@ -135,10 +131,7 @@ function createCard(recipe){
     }
     
 }
-
-function handleFavorite(recipe) {
-  console.log(recipe)
-} 
+ 
 
 function handleSubmit(e) {
   e.preventDefault()
@@ -186,7 +179,7 @@ function addNewIngredientInput(e){
   const amountInput = document.createElement('input')
   amountInput.setAttribute('class', 'amount')
   amountInput.setAttribute('placeholder', 'amount')
-  console.log(amountInput)
+
 
   const deleteBtn = document.createElement('a')
   deleteBtn.setAttribute('href', '#')  
