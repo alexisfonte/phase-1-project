@@ -28,8 +28,6 @@ function renderCards(recipeArray){
     })
 }
 
-
-
 // Callback Functions
 function createCard(recipe){
   const recipeName = recipe.name
@@ -141,6 +139,15 @@ function handleSubmit(e) {
   ingredientMeasurement = document.querySelector('.measurement').value
   newDirections = document.querySelector('.directions').value
   newAmount = document.querySelector('.amount').value
+
+    function validate() {
+      if (newRecipeTitle) {
+        return true;
+      } else {
+        alert('Please fill the recipe title');
+        return false;
+      }
+    }
   
   fetch('http://localhost:3000/recipes',{
     method: 'POST',
