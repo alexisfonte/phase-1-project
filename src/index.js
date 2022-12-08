@@ -14,7 +14,7 @@ fetch("http://localhost:3000/recipes")
 .then(recipeArray => renderCards(recipeArray))
 
 // DOM Selectors
-const cardContainer = document.querySelector('div.search-result')
+const cardContainer = document.querySelector('div.card-container')
 const addIngredient = document.querySelector('.add')
 addIngredient.addEventListener('click', (e) => addNewIngredientInput(e))
 
@@ -115,7 +115,7 @@ function createCard(recipe){
     buttonsDiv.append(deleteRecipe)
     cardContainer.append(card)
     
-    // Functionality for the collapsible recipie details
+    // Functionality for the collapsible recipe details
 
     let coll = document.getElementsByClassName(recipeName);
  

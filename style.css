@@ -36,14 +36,14 @@ section.recipes{
     color: #333;
     margin-bottom: 30px
 }
-.search{
+/* .search{
     width: 90%;
     max-width: 400px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 4px;
-}
-#search-bar{
+} */
+/* #search-bar{
     width: 90%;
     background-color: transparent;
     padding: 10px;
@@ -51,14 +51,14 @@ section.recipes{
     outline: none;
     font-size: 2rem;
     display: inline-block;
-}
+} */
 form ion-icon{
     width: 9%;
     font-size: 3rem;
     margin: -9px;
     color: #333;
 }
-.search-result{
+.card-container{
     margin-top: 50px;
     width: 100%;
     display: grid;
