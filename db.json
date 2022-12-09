@@ -6,7 +6,7 @@
       "image": "https://scontent-iad3-1.xx.fbcdn.net/v/t1.6435-9/91296522_10158061260434326_4690995213773045760_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=7cRPuxfWR9cAX_MkYNc&_nc_ht=scontent-iad3-1.xx&oh=00_AfDYz0p8kKXui-qv7py3Dp3NdGxrNAK2JvYotmvmAE9J7Q&oe=63B6C94B",
       "tags": false,
       "ingredients": [
-        "1/2 cup unsalted butter melted",
+        "1/2 cup unsalted butter, melted",
         "1/2 cup unsweetened cocoa powder",
         "1 cup granulated sugar",
         "2 each large eggs",
@@ -22,6 +22,41 @@
         "Spread in pan and bake for approximately 20-22 minutes or until the center is slightly set. Be careful not to over-bake!",
         "Cool completely then cut into 9 large squares or 16 small squares. Enjoy!"
       ]
-    }
+    },
+    {
+      "id": 2,
+      "name": "Chocolate Chip Cookies",
+      "image": "https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookie-recipe-6.jpg",
+      "tags": false,
+      "ingredients": [
+        
+          "1 cup salted butter, softened",
+          "1 cup granulated sugar",
+          "1 cup light brown sugar packed",
+          "2 tbsp vanilla extract",
+          "2 large eggs",
+          "3 cups all-purpose flour",
+          "1 tsp baking soda",
+          "1/2 tsp baking powder",
+          "1/2 tsp sea salt",
+          "2 cups chocolate chips (or chunks, or chopped chocolate)"
+      ],
+      "instructions": [
+          "Preheat oven to 375 degrees F. Line a baking pan with parchment paper and set aside.",
+          "In a separate bowl mix flour, baking soda, salt, baking powder. Set aside.",
+          "Cream together butter and sugars until combined.",
+          "Beat in eggs and vanilla until fluffy.",
+          "Mix in the dry ingredients until combined.",
+          "Add the chocolate chips and mix well.",
+          "Roll 2-3 tbs of dough at a time into balls and place them evenly spaced on your prepared cookie sheets.",
+          "Bake in preheated oven for approximately 8-10 minutes. Take them out when they are just BARELY starting to turn brown.",
+          "Let them sit on the baking pan for 2 minutes before removing to cooling rack."
+      ]
+    },
+
+
+
+
+
   ]
 }
