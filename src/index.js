@@ -1,13 +1,18 @@
 // Example Html Card
 /* <div class="item">
-            <img src="./assets/brownie.jpeg" alt="recipe img">
-            <!-- <div class="flex-container"> -->
-              <button type="button" class="collapsible">Open Collapsible</button>
-              <div class="content">
-                <p>Lorem ipsum...</p>
-              </div>
-            <!-- </div> -->
-          </div> */
+      <div class="buttonsDiv">
+        <button class="favorites">Add to Favorites</button>
+      </div>
+      <img src="./assets/brownie.jpeg" alt="recipe img">
+      <button id="details-button" class="${recipe name}">
+       <div class="content">
+        <ul>Ingredient list here</ul>
+        <ol>Directions list here</ol>
+          <div class="buttonsDiv">
+            <button>Delete</button>
+          </div>
+        </button>
+      </div> */
 
 fetch("http://localhost:3000/recipes")
 .then(resp => resp.json())
@@ -27,6 +32,7 @@ form.addEventListener('submit', handleSubmit)
 
 const plusBtn = document.querySelectorAll('a#add')
 
+//changes button styling on hover
 plusBtn.forEach( btn =>
   btn.addEventListener('mouseenter', (event) => {
     btn.style.backgroundColor = '#778da9';
@@ -34,7 +40,8 @@ plusBtn.forEach( btn =>
       btn.style.backgroundColor = "black";
     }, 300);
   }, false)
-  )
+)
+
 
 // RenderFunctions
 function renderCards(recipeArray){
@@ -74,7 +81,7 @@ function createCard(recipe){
         }
       })
       .then(resp => resp.json())
-    })
+  })
   
   const recipeImageDOM = document.createElement('img')
   recipeImageDOM.src = recipeImage
@@ -106,11 +113,6 @@ function createCard(recipe){
   const buttonsDiv = document.createElement('div')
   buttonsDiv.setAttribute('class', 'buttonsDiv')
   
-    
-    
-    
-  
-  
   const deleteRecipe = document.createElement('button')
   deleteRecipe.textContent = 'Delete'
   deleteRecipe.addEventListener('click', (e) => {
@@ -129,7 +131,6 @@ function createCard(recipe){
   ingredients.append(ul)
   ingredients.append(ol)
   ol.append(buttonsDiv)
-  // buttonsDiv.append(favoritesButton)
   buttonsDiv.append(deleteRecipe)
   cardContainer.append(card)
   
@@ -150,67 +151,6 @@ function createCard(recipe){
 }
 
 
-function handleSubmit(e) {
-  e.preventDefault()
-  newRecipeTitle = document.querySelector('.recipe-name').value
-  
-  
-  newImage = document.querySelector('.image').value
-  
-  newIngredient = document.querySelectorAll('input.ingredient')
-  let ingredientArray = []
-  newIngredient.forEach(ingredient => {
-    ingredientArray.push(ingredient.value)
-  })
-  
-  newAmount = document.querySelectorAll('input.amount')
-  let amountArray = []
-  newAmount.forEach(amount => {
-    amountArray.push(amount.value)
-  })
-  ingredientMeasurement = document.querySelectorAll('select')
-  let measurementArray=[]
-  ingredientMeasurement.forEach(meas => {
-    measurementArray.push(meas.value)
-  })
-  let totalIngredient = []
-  
-  ingredientArray.forEach((ingredient, index) => {
-    const amount = amountArray[index]
-    const measurement = measurementArray[index]
-    totalIngredient.push(`${amount} ${measurement} ${ingredient}`)
-  })
-  
-  const directionsObject = document.querySelectorAll('#new-direction input.direction')
-  let instructionArray = []
-  directionsObject.forEach(object => {
-    instructionArray.push(object.value)
-  })
-  
-  
-  fetch('http://localhost:3000/recipes',{
-    method: 'POST',
-    headers:{
-      "Content-Type":"application/json",
-      "Accept":"application/json",
-    },
-    body: JSON.stringify({
-      name: newRecipeTitle,
-      image: newImage,
-      tags: false,
-      ingredients: totalIngredient,
-      instructions: instructionArray,
-    })
-  })
-  .then(resp => resp.json())
-  .then(newPost => createCard(newPost))
-  const deleteB = document.querySelectorAll('#delete-button')
-  console.log(deleteB)
-  deleteB.forEach(button =>{
-    button.parentNode.remove()
-  })
-  e.target.reset()
-}
 
 
 function addNewIngredientInput(e){
@@ -313,7 +253,7 @@ function addNewDirectionInput(e){
   const directionInput = document.createElement('input')
   directionInput.setAttribute('class', 'direction')
   directionInput.setAttribute('placeholder', 'Directions:')
-
+  
   const deleteBtn = document.createElement('a')
   deleteBtn.setAttribute('href', '#')
   deleteBtn.setAttribute('id', 'delete-button')  
@@ -322,9 +262,69 @@ function addNewDirectionInput(e){
     e.preventDefault()
     deleteBtn.parentNode.remove()
   })
-
+  
   newInputSection.append(directionInput)
   newInputSection.append(deleteBtn)
   document.querySelector('.addDirections').append(newInputSection)
+}
+
+function handleSubmit(e) {
+  e.preventDefault()
+  newRecipeTitle = document.querySelector('.recipe-name').value
+  newImage = document.querySelector('.image').value
+  
+  newIngredient = document.querySelectorAll('input.ingredient')
+  let ingredientArray = []
+  newIngredient.forEach(ingredient => {
+    ingredientArray.push(ingredient.value)
+  })
+  
+  newAmount = document.querySelectorAll('input.amount')
+  let amountArray = []
+  newAmount.forEach(amount => {
+    amountArray.push(amount.value)
+  })
+  ingredientMeasurement = document.querySelectorAll('select')
+  let measurementArray=[]
+  ingredientMeasurement.forEach(meas => {
+    measurementArray.push(meas.value)
+  })
+  let totalIngredient = []
+  
+  ingredientArray.forEach((ingredient, index) => {
+    const amount = amountArray[index]
+    const measurement = measurementArray[index]
+    totalIngredient.push(`${amount} ${measurement} ${ingredient}`)
+  })
+  
+  const directionsObject = document.querySelectorAll('#new-direction input.direction')
+  let instructionArray = []
+  directionsObject.forEach(object => {
+    instructionArray.push(object.value)
+  })
+  
+  
+  fetch('http://localhost:3000/recipes',{
+    method: 'POST',
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":"application/json",
+    },
+    body: JSON.stringify({
+      name: newRecipeTitle,
+      image: newImage,
+      tags: false,
+      ingredients: totalIngredient,
+      instructions: instructionArray,
+    })
+  })
+  .then(resp => resp.json())
+  .then(newPost => createCard(newPost))
+  const deleteB = document.querySelectorAll('#delete-button')
+  console.log(deleteB)
+  deleteB.forEach(button =>{
+    button.parentNode.remove()
+  })
+  e.target.reset()
 }
 
