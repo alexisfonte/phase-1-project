@@ -22,7 +22,7 @@ section.recipes{
     align-items: center;
     justify-content: center;
     padding: 100px 0;
-    background-color: #ece7e1;
+    background-color: #778da9;
 }
 .container{
     width: 90%;
@@ -33,7 +33,7 @@ section.recipes{
 .logo{
     text-align: center;
     font-size: 4rem;
-    color: black;
+    color: whitesmoke;
     margin-bottom: 30px
 }
 .card-container{
@@ -82,10 +82,7 @@ button#details-button{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     border: none;
-}
-button#details-button:hover{
-    background-color: #ece7e1;
-    color: black !important;
+    background-color: transparent;
 }
 .content {
     margin: 12px;
@@ -109,17 +106,23 @@ button#details-button:hover{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 .buttonsDiv button{
-    margin-top: 12px;
+    /* margin-top: 12px; */
     text-align: center;
     font-size: 1.3rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     border: none;
+    margin-bottom: 3px;
+    border-radius: 4px;
+    background-color: transparent;
 }
-
+.buttonsDiv button:hover{
+    background-color: #778da9;
+    color: white;
+}
 /* form styling */
 
 section.form{
@@ -127,7 +130,8 @@ section.form{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ece7e1;
+    background-color: #778da9;
+    color: whitesmoke;
 }
 .form-wrap{
     display: flex;
@@ -147,6 +151,7 @@ section.form{
     padding: 25px;
     background-color: #fff;
     border-radius: 4px;
+    color: black;
 }
 .new-recipe input, textarea{
     font-size: 1rem;
@@ -230,15 +235,9 @@ select{
     align-items: center;
     border-radius: 4px;
 }
-input[type="submit"] {
-    color: white;
-    border: 1px solid white;
-    background-color: black;
-    transition: all 0.3s;
-}
-  
 button[type="submit"] {
-    background-color: #ece7e1;
+    background-color: transparent;
+    color: black;
     padding: 1rem;
     margin-bottom: 12px;
     margin-top: 12px;
@@ -246,12 +245,11 @@ button[type="submit"] {
     font-size: 1.3rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    border: none;
+    border-width: 1px;
     border-radius: 4px;
 }
 button[type="submit"]:hover{
-    background-color: black;
-    color:white !important;
+    border-width: 2px;
 }
   .plus-create{
     display: flex;
@@ -263,7 +261,7 @@ button[type="submit"]:hover{
     text-decoration: none;
     width: 25px;
     height: 25px;
-    background: rgb(150, 210, 150);
+    background: #778da9;
     font-size: 2rem;
     font-weight: 600;
     color: #fff;
@@ -277,7 +275,7 @@ button[type="submit"]:hover{
     text-decoration: none;
     width: 25px;
     height: 25px;
-    background: rgb(150, 210, 150);
+    background: black;
     font-size: 2rem;
     font-weight: 600;
     color: #fff;

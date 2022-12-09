@@ -29,9 +29,9 @@ const plusBtn = document.querySelectorAll('a#add')
 
 plusBtn.forEach( btn =>
   btn.addEventListener('mouseenter', (event) => {
-    btn.style.backgroundColor = 'black';
+    btn.style.backgroundColor = '#778da9';
     setTimeout(() => {
-      btn.style.backgroundColor = "rgb(150, 210, 150)";
+      btn.style.backgroundColor = "black";
     }, 500);
   }, false)
   )
@@ -54,6 +54,17 @@ function createCard(recipe){
   
   const card = document.createElement('div')
   card.setAttribute("class", "item")
+
+  const favoritesDiv = document.createElement('div')
+  favoritesDiv.setAttribute('class', 'buttonsDiv')
+
+  const favoritesButton = document.createElement('button')
+  favoritesButton.setAttribute('class', 'favorites')
+  favoritesButton.textContent = "Add to Favorites"
+    favoritesButton.addEventListener('click', (e) => {
+      recipe.tags = !recipe.tags
+      favoritesButton.textContent = recipe.tags ? "Add to Favorites" : "Favorited"
+    })
   
   const recipeImageDOM = document.createElement('img')
   recipeImageDOM.src = recipeImage
@@ -85,12 +96,6 @@ function createCard(recipe){
   const buttonsDiv = document.createElement('div')
   buttonsDiv.setAttribute('class', 'buttonsDiv')
   
-  const favoritesButton = document.createElement('button')
-  favoritesButton.setAttribute('class', 'favorites')
-  favoritesButton.textContent = "Add to Favorites"
-  favoritesButton.addEventListener('click', (e) => {
-    recipe.tags = !recipe.tags
-    favoritesButton.textContent = recipe.tags ? "Add to Favorites" : "Favorited"
     
     fetch(`http://localhost:3000/recipes/${recipe.id}`,{
       method: 'PATCH',
@@ -103,7 +108,7 @@ function createCard(recipe){
     })
     .then(resp => resp.json())
     
-  })
+  
   
   const deleteRecipe = document.createElement('button')
   deleteRecipe.textContent = 'Delete'
@@ -115,14 +120,15 @@ function createCard(recipe){
     card.remove()
   })
   
-  
+  card.append(favoritesDiv)
+  favoritesDiv.append(favoritesButton)
   card.append(recipeImageDOM)
   card.append(detailsBtn)
   detailsBtn.append(ingredients)
   ingredients.append(ul)
   ingredients.append(ol)
   ol.append(buttonsDiv)
-  buttonsDiv.append(favoritesButton)
+  // buttonsDiv.append(favoritesButton)
   buttonsDiv.append(deleteRecipe)
   cardContainer.append(card)
   
@@ -140,7 +146,6 @@ function createCard(recipe){
       }
     });
   }
-  
 }
 
 
