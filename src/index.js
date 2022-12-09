@@ -32,7 +32,7 @@ plusBtn.forEach( btn =>
     btn.style.backgroundColor = '#778da9';
     setTimeout(() => {
       btn.style.backgroundColor = "black";
-    }, 500);
+    }, 300);
   }, false)
   )
 
@@ -60,10 +60,20 @@ function createCard(recipe){
 
   const favoritesButton = document.createElement('button')
   favoritesButton.setAttribute('class', 'favorites')
-  favoritesButton.textContent = "Add to Favorites"
-    favoritesButton.addEventListener('click', (e) => {
+  favoritesButton.textContent = recipe.tags ? "Favorited!" : "Add to Favorites"
+    favoritesButton.addEventListener('click', () => {
       recipe.tags = !recipe.tags
-      favoritesButton.textContent = recipe.tags ? "Add to Favorites" : "Favorited"
+      favoritesButton.textContent = recipe.tags ? "Add to Favorites" : "Favorited!"
+        fetch(`http://localhost:3000/recipes/${recipe.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+          tags: !recipe.tags
+        }),
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(resp => resp.json())
     })
   
   const recipeImageDOM = document.createElement('img')
@@ -97,16 +107,7 @@ function createCard(recipe){
   buttonsDiv.setAttribute('class', 'buttonsDiv')
   
     
-    fetch(`http://localhost:3000/recipes/${recipe.id}`,{
-      method: 'PATCH',
-      body: JSON.stringify({
-        tags: !recipe.tags
-      }),
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-    .then(resp => resp.json())
+    
     
   
   
