@@ -53,10 +53,82 @@
           "Let them sit on the baking pan for 2 minutes before removing to cooling rack."
       ]
     },
-
-
-
-
-
+    {
+      "id": 3,
+      "name": "Molten Chocolate Lava Cakes",
+      "image": "https://www.aheadofthyme.com/wp-content/uploads/2016/02/molten-chocolate-lava-cakes-2.jpg",
+      "tags": false,
+      "ingredients": [
+          "1 cup semi-sweet chocolate, coursely chopped",
+          "1/2 cup unsalted butter, cut into ½ inch cubes",
+          "2 large eggs",
+          "2 large egg yolks",
+          "1/2 tsp vanilla extract",
+          "1/4 cup confectioners' sugar",
+          "1/8 tsp salt",
+          "3 tbsp all-purpose flour"
+      ],
+      "instructions": [
+          "Preheat oven to 425 F. Grease four 6-oz. ramekins or three 8-oz. ramekins with non-stick cooking spray and dust with cocoa powder, tapping out the excess cocoa powder. This will help the lava cakes come out easily when inverted.",
+          "Melt the chocolate and butter in a medium heat-proof bowl and set aside to allow it to slightly cool. You can melt the chocolate either on the stove or in the microwave.",
+          "In a medium mixing bowl, use an electric hand mixer or a whisk to beat together the eggs, egg yolks, vanilla extract, sugar, and salt, on low speed, until combined, about 1 minute.",
+          "Pour in the melted chocolate into the egg mixture, along with the flour. Use a rubber spatula and fold it in until fully combined. The batter will be thick but should not be lumpy.",
+          "Place the ramekins on a quarter sheet baking pan and divide the batter between them. Bake for 12-14 minutes until the edges look solid and firm. The tops will still be soft with a slight jiggle in the center. Do not overcook as overcooking will cause the center to completely solidify and not be gooey.",
+          "Allow the cakes to cool in the ramekins for 1 minute, then cover each with an inverted plate and use an oven mitt to flip them over and release the cakes onto the plate.",
+          "Add toppings (such as a scoop of vanilla ice cream, dusting with powdered sugar, garnishing with fresh fruit, or a drizzle of salted caramel sauce or chocolate sauce). Serve immediately."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Banana Bread",
+      "image": "https://www.simplyrecipes.com/thmb/1qlP36kzpJIkLq3DR10qjINflcI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Easy-Banana-Bread-LEAD-2-66837beab63c495292d89743c6767171.jpg",
+      "tags": false,
+      "ingredients": [
+          "1/2 cup unsalted butter, melted",
+          "3 large ripe bananas",
+          "2 large eggs",
+          "1 tsp vanilla extract",
+          "2 cups all-purpose flour",
+          "1 cup granulated sugar",
+          "1 tsp baking soda",
+          "1/2 tsp salt"
+      ],
+      "instructions": [
+          "Preheat oven to 350 degrees. Spray a loaf pan with non-stick cooking spray or grease with butter and set aside.",
+          "In a large bowl, combine melted butter and bananas and mash with a fork.",
+          "Add the vanilla extract and egg to the bowl and use the same fork to mash and stir until no yellow streaks of egg remain.",
+          "Pour in the melted chocolate into the egg mixture, along with the flour. Use a rubber spatula and fold it in until fully combined. The batter will be thick but should not be lumpy.",
+          "In a second large bowl whisk together the flour, sugar, baking soda, and salt.",
+          "Add the dry ingredients to the wet ingredients and mix together with a spatula just until combined. Do not overmix.",
+          "Pour the batter into prepared loaf pan and bake for 45-55 minutes until a toothpick inserted in the center of the bread comes out clean."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Lemon Blueberry Bread",
+      "image": "https://www.aheadofthyme.com/wp-content/uploads/2021/07/lemon-blueberry-bread-8.jpg",
+      "tags": true,
+      "ingredients": [
+          "1 1/2 cups all-purpose flour",
+          "1 tsp baking powder",
+          "1/3 cup granulated sugar",
+          "1/2 tsp salt",
+          "1/2 cup milk",
+          "1/3 cup vegetable oil",
+          "1 egg",
+          "1 tsp vanilla extract",
+          "1 lemon, juiced and zested",
+          "1 1/2 cup fresh blueberries"
+      ],
+      "instructions": [
+          "Preheat the oven to 350 F. Lightly grease a 9x5-inch loaf pan with cooking spray oil.",
+          "In a large mixing bowl, combine the dry ingredients including flour, baking powder, sugar, and salt. Whisk together until evenly distributed and set aside.",
+          "In a medium mixing bowl, whisk well to combine the wet ingredients including milk, oil, egg, vanilla extract, lemon juice, and lemon zest.",
+          "Pour the wet ingredients into the dry ingredients and mix together using a rubber spatula until just combined and no dry ingredients are visible. Do not overmix (overmixing will make the bread denser and firmer). Fold in 1 cup of blueberries until evenly mixed.",
+          "Pour the batter into the prepared loaf pan and add the remaining ½ cup blueberry on top.",
+          "Bake for 55 minutes until golden brown and a toothpick inserted into the center of the cake comes out clean. Let cool for 10-15 minutes, then invert to remove the loaf.",
+          "Serve warm or at room temperature. Drizzle with glaze if desired."
+      ]
+    }
   ]
 }
