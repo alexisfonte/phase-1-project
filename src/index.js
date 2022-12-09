@@ -29,9 +29,9 @@ const plusBtn = document.querySelectorAll('a#add')
 
 plusBtn.forEach( btn =>
   btn.addEventListener('mouseenter', (event) => {
-    btn.style.color = 'black'
+    btn.style.backgroundColor = 'black';
     setTimeout(() => {
-      btn.style.color = "";
+      btn.style.backgroundColor = "rgb(150, 210, 150)";
     }, 500);
   }, false)
   )
@@ -198,17 +198,14 @@ function handleSubmit(e) {
   })
   .then(resp => resp.json())
   .then(newPost => createCard(newPost))
+  const deleteB = document.querySelectorAll('#delete-button')
+  console.log(deleteB)
+  deleteB.forEach(button =>{
+    button.parentNode.remove()
+  })
   e.target.reset()
 }
 
-function validate(recipe) {
-  if (recipe) {
-    return true;
-  } else {
-    alert('Please fill the recipe title');
-    return false;
-  }
-}
 
 function addNewIngredientInput(e){
   e.preventDefault()
